@@ -4,4 +4,7 @@ import hashlib
 if not sys.argv[1:]:
   sys.exit('usage: python -m sha1 <filename>')
 
-print(hashlib.sha1(open(sys.argv[1], 'rb').read()).hexdigest())
+sha1sum = hashlib.sha1()
+with open(sys.argv[1], 'rb') as source:
+  sha1sum.update(source.read(2**16))
+print(sha1sum.hexdigest())
