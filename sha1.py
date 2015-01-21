@@ -9,7 +9,7 @@ import hashlib
 __version__ = '1.0'
 __author__ = 'anatoly techtonik <techtonik@gmail.com>'
 __license__ = 'Public Domain'
-__url__ = 'https://gist.github.com/techtonik/df09baeacbebc52d234b'
+__url__ = 'https://github.com/techtonik/sha1'
 # /-- these fields are required for packaging
 
 if not sys.argv[1:]:
