@@ -7,7 +7,7 @@ import sys
 import hashlib
 
 # --- these fields are required for packaging
-__version__ = '1.1'
+__version__ = '1.2'
 __author__ = 'anatoly techtonik <techtonik@gmail.com>'
 __license__ = 'Public Domain'
 __url__ = 'https://github.com/techtonik/sha1'
@@ -18,6 +18,12 @@ if sys.stdin.isatty():  # stdin is not piped
     sys.exit(__doc__.strip())
   source = open(sys.argv[1], 'rb')
 else:
+  # Python on Windows provides sys.stdin in text mode, and
+  # binary data that read from it becomes corrupted on \r\n
+  if sys.platform == "win32":
+    # set sys.stdin to binary mode
+    import os, msvcrt
+    msvcrt.setmode(sys.stdin.fileno(), os.O_BINARY)
   source = sys.stdin
 
 sha1sum = hashlib.sha1()
