@@ -12,7 +12,6 @@ with:
     python -m sha1 <filename>  
     python -m sha1 < file
 
-sha1 &lt;filename>  
+## more hashes
 
-## other tools
-* https://github.com/Miserlou/omnihash - needs installation, but supports a lot of hashes
+* https://github.com/Miserlou/omnihash - needs installation, outputs many hashes
